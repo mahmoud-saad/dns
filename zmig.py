@@ -33,7 +33,7 @@ if get_ns == "ns3.link.net."  or get_ns == "ns4.link.net.":
 	    break
     # if zone is not defined at named.conf script will add new defination for it.
     else:
-        cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 214.131.64.19; };\n };\n' % (zone_name, zone_name)) 
+        cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 213.131.64.19; };\n };\n' % (zone_name, zone_name)) 
         print "zone '%s' added to named.conf" % zone_name
         reload_named()
 	#check if zone is transferd correctly
@@ -51,7 +51,7 @@ elif get_ns == "ns1.link.net."  or get_ns == "ns2.link.net."  or get_ns == "ns5.
             break
     # if zone is not defined at named.conf script will add new defination for it.
     else:
-        cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 214.131.64.2; };\n };\n' % (zone_name, zone_name))
+        cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 213.131.64.2; };\n };\n' % (zone_name, zone_name))
 	print "zone '%s' added to named.conf" % zone_name
         reload_named()
         #check if zone is transferd correctly
