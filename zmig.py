@@ -35,7 +35,7 @@ if get_ns == "ns3.link.net."  or get_ns == "ns4.link.net.":
     else:
         cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 213.131.64.19; };\n };\n' % (zone_name, zone_name)) 
         print "zone '%s' added to named.conf" % zone_name
-        subprocess.call("service named reload", shell=True)
+        subprocess.check_call("service named reload",shell=True)
 	#check if zone is transferd correctly
         if os.path.exists('/var/named/%s.db' % zone_name ) :
             print "zone transfred successfuly"
@@ -53,7 +53,7 @@ elif get_ns == "ns1.link.net."  or get_ns == "ns2.link.net."  or get_ns == "ns5.
     else:
         cfg_append.write('zone "%s"  { \n      type slave;\n      file "/var/named/%s.db";\n       masters { 213.131.64.2; };\n };\n' % (zone_name, zone_name))
 	print "zone '%s' added to named.conf" % zone_name
-        subprocess.call("service named reload", shell=True)
+        subprocess.check_call("service named reload",shell=True)
         #check if zone is transferd correctly
         if os.path.exists("/var/named/%s.db" %zone_name ):
             print "zone transfred successfuly"
